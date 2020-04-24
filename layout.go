@@ -21,6 +21,40 @@ var orientationPointy orientation = orientation{math.Sqrt(3.), math.Sqrt(3.) / 2
 
 var orientationFlat orientation = orientation{3. / 2., 0., math.Sqrt(3.) / 2., math.Sqrt(3.), 2. / 3., 0., -1. / 3., math.Sqrt(3.) / 3., 0.}
 
+// LayoutFlat returns a layout with flat orientation
+func LayoutFlat00(sizex float64, sizey float64) layout {
+	return layout{
+		orientation: orientationFlat,
+		size:        point{
+			x: sizex,
+			y: sizey,
+		},
+		origin:      point{
+			x: 0,
+			y: 0,
+		},
+	}
+}
+
+// LayoutPointY00 returns a layout with flat orientation
+func LayoutPointY00(sizex float64, sizey float64) layout {
+	return layout{
+		orientation: orientationPointy,
+		size:        point{
+			x: sizex,
+			y: sizey,
+		},
+		origin:      point{
+			x: 0,
+			y: 0,
+		},
+	}
+}
+
+func Point(point point) (float64, float64) {
+	return point.x, point.y
+}
+
 // HexToPixel returns the center pixel for a given hexagon an a certain layout
 func HexToPixel(l layout, h hex) point {
 
